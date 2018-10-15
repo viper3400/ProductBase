@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import CreateEntry from '@/components/CreateEntry'
+import CreateEntry from '@/components/CreateEntry'
 import Login from '@/components/Login'
 
 Vue.use(Router)
@@ -11,6 +11,11 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/createentry',
+      name: 'CreateEntry',
+      component: CreateEntry
     }
   ]
 })

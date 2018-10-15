@@ -8,15 +8,21 @@ import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import firebasconf from './firebaseconf.js'
 
+let app
+
 Vue.config.productionTip = false
 Vue.use(MuseUI)
 
 firebase.initializeApp(firebasconf)
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+firebase.auth().onAuthStateChanged(function (user) {
+  if (!app) {
+    /* eslint-disable no-new */
+    app = new Vue({
+      el: '#app',
+      template: '<App/>',
+      components: { App },
+      router
+    })
+  }
 })

@@ -40,7 +40,7 @@ export default {
     signIn: function () {
       firebase.auth().signInWithEmailAndPassword(this.validateForm.username, this.validateForm.password).then(
         (user) => {
-          this.$router.replace('createentry')
+          this.$router.replace('entrylist')
         },
         (err) => {
           alert('Oops. ' + err.message)

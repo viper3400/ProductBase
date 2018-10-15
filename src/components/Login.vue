@@ -1,7 +1,7 @@
 <template>
   <div>
     <background-image/>
-    <mu-flex class="flex-wrapper page-wrap" justify-content="center">
+    <mu-flex class="flex-wrapper page-wrap overlay" justify-content="center">
       <mu-flex class="flex-demo" justify-content="center">
         <mu-form ref="form" :model="validateForm" class="mu-login-form">
           <mu-form-item label="Username" prop="username">

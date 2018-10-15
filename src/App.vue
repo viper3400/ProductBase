@@ -15,13 +15,13 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   height: 100%;
 }
-
-.page-wrap {
+.overlay {
   position: relative;
+}
+.page-wrap {
   margin-top: 10%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.85);

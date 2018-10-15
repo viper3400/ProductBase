@@ -1,30 +1,33 @@
 <template>
   <div class="hello">
     <background-image />
-    <mu-flex justify-content="center">
-    <div class="page-wrap">
-      <div>
-        <mu-text-field label="Name" v-model="name"/>
-      </div>
-      <div>
+    <div class="overlay">
+      <app-bar/>
+      <div class="page-wrap sizing">
+      <mu-flex justify-content="center">
+          <mu-text-field label="Name" v-model="name"/>
+      </mu-flex>
+      <mu-flex justify-content="center">
         <mu-text-field label="Bewertung" v-model="rating"/>
+      </mu-flex>
+        <mu-flex justify-content="center">
+          <button @click="writeData">Write Data</button>
+        </mu-flex>
+        </div>
       </div>
-      <div>
-        <button @click="writeData">Write Data</button>
-      </div>
-      </div>
-    </mu-flex>
-  </div>
+    </div>
 </template>
 
 <script>
 import firebase from 'firebase'
+import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
 
 export default {
   name: 'CreateEntry',
   components: {
-    BackgroundImage
+    BackgroundImage,
+    AppBar
   },
   data () {
     return {
@@ -54,14 +57,14 @@ export default {
     }
   },
   mounted () {
-    var email = ''
-    var password = ''
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-      // Handle Errors here.
-      // var errorCode = error.code
-      var errorMessage = error.message
-      console.log(errorMessage)
-    })
+    // var email = ''
+    // var password = ''
+    // firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+    //   // Handle Errors here.
+    //   // var errorCode = error.code
+    //   var errorMessage = error.message
+    //   console.log(errorMessage)
+    // })
     this.readData()
   }
 }
@@ -84,14 +87,9 @@ a {
   color: #42b983;
 }
 
-.page-wrap {
-  position: relative;
-  margin-top: 10%;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.85);
-  -moz-box-shadow: 0 0 20px black;
-  -webkit-box-shadow: 0 0 20px black;
-  box-shadow: 0 0 20px black;
-  color: black;
+.sizing {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 5%;
 }
 </style>

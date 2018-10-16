@@ -10,6 +10,9 @@
       <mu-flex justify-content="center">
         <mu-text-field label="Bewertung" v-model="product.rating"/>
       </mu-flex>
+      <mu-flex justify-content="center">
+        <mu-text-field label="Image Link" v-model="product.img"/>
+      </mu-flex>
         <mu-flex justify-content="center">
           <mu-button @click="writeData">Save</mu-button>
         </mu-flex>
@@ -34,7 +37,8 @@ export default {
       productId: null,
       product: {
         name: null,
-        rating: null
+        rating: null,
+        img: null
       }
     }
   },
@@ -42,7 +46,8 @@ export default {
     writeData: function () {
       var ref = firebase.database().ref('products/' + this.productId).set({
         name: this.product.name,
-        rating: this.product.rating
+        rating: this.product.rating,
+        img: this.product.img
       })
       console.log(ref.toString())
     },

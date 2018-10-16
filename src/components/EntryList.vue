@@ -16,14 +16,14 @@
              <!--<mu-card-header :title="item.name" sub-title="sub title">
               </mu-card-header>-->
               <mu-card-media>
-                <img width="120px" src="https://d17gnwn89zo776.cloudfront.net/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/g/i/gin-mare-mediterranean-gin-70cltest.jpg">
+                <img v-if="item.img" class="productimage" :src="item.img">
               </mu-card-media>
               <mu-card-title :title="item.name" :sub-title="item.rating"></mu-card-title>
               <mu-card-text>
               </mu-card-text>
               <mu-card-actions>
                 <mu-button flat @click="editRedirect(idx)">Edit</mu-button>
-                <mu-button flat>Remove</mu-button>
+                <!--<mu-button flat>Remove</mu-button>-->
               </mu-card-actions>
             </mu-card>
           </mu-col>
@@ -73,7 +73,10 @@ export default {
   margin: 0 auto;
   margin-top: 5%;
 }
-
+.productimage {
+  width: auto;
+  max-height: 300px;
+}
 .col {
     margin-bottom: 18px;
     }

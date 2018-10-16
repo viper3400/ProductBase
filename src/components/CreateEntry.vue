@@ -10,8 +10,11 @@
       <mu-flex justify-content="center">
         <mu-text-field label="Bewertung" v-model="rating"/>
       </mu-flex>
+       <mu-flex justify-content="center">
+        <mu-text-field label="Image Link" v-model="img"/>
+      </mu-flex>
         <mu-flex justify-content="center">
-          <button @click="writeData">Write Data</button>
+          <mu-button @click="writeData">Write Data</mu-button>
         </mu-flex>
         </div>
       </div>
@@ -33,14 +36,16 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       rating: 0,
-      name: 'GinName'
+      name: null,
+      img: null
     }
   },
   methods: {
     writeData: function () {
       var ref = firebase.database().ref('products/').push({
         name: this.name,
-        rating: this.rating
+        rating: this.rating,
+        img: this.img
       })
       console.log(ref.toString())
     },

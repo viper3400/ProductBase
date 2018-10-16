@@ -7,16 +7,16 @@
   <mu-menu slot="right">
     <mu-button flat>MENU</mu-button>
     <mu-list slot="content">
+      <mu-list-item button to="/entrylist">
+        <mu-list-item-content>
+          <mu-list-item-title>Products</mu-list-item-title>
+        </mu-list-item-content>
+      </mu-list-item>
       <mu-list-item button @click="signOut">
         <mu-list-item-content>
           <mu-list-item-title>SignOut</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
-      <!--<mu-list-item button>
-        <mu-list-item-content>
-          <mu-list-item-title>Menu Item 2</mu-list-item-title>
-        </mu-list-item-content>
-      </mu-list-item>-->
     </mu-list>
   </mu-menu>
 </mu-appbar>

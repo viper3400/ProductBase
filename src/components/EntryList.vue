@@ -6,7 +6,7 @@
       <div class="page-wrap sizing">
         <mu-list v-if="products">
           <mu-list-item v-for="(item, idx) in products" :key="idx">
-            <mu-list-item-title>{{item.name}} ({{item.rating}})</mu-list-item-title>
+            <mu-list-item-title  @click="editRedirect(idx)">{{item.name}} ({{item.rating}})</mu-list-item-title>
           </mu-list-item>
         </mu-list>
       </div>
@@ -36,6 +36,9 @@ export default {
       ref.once('value').then((snapshot) => {
         this.products = snapshot.val()
       })
+    },
+    editRedirect: function (id) {
+      this.$router.push('/editproduct/' + id)
     }
   },
   mounted () {

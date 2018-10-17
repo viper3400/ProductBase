@@ -4,30 +4,26 @@
     <div class="overlay">
       <app-bar/>
       <div class="page-wrap sizing">
-        <!--<mu-list v-if="products">
-          <mu-list-item v-for="(item, idx) in products" :key="idx">
-            <mu-list-item-title  @click="editRedirect(idx)">{{item.name}} ({{item.rating}})</mu-list-item-title>
-          </mu-list-item>
-        </mu-list>-->
       <mu-container v-if="products">
-        <mu-row gutter>
-          <mu-col span="4" v-for="(item, idx) in products" :key="idx">
-            <mu-card style="width: 100% height: 50px; margin: 0 auto;">
-             <!--<mu-card-header :title="item.name" sub-title="sub title">
-              </mu-card-header>-->
-              <mu-card-media>
-                <img v-if="item.img" class="productimage" :src="item.img">
-              </mu-card-media>
-              <mu-card-title :title="item.name" :sub-title="item.rating"></mu-card-title>
-              <mu-card-text>
-              </mu-card-text>
-              <mu-card-actions>
-                <mu-button flat @click="editRedirect(idx)">Edit</mu-button>
-                <!--<mu-button flat>Remove</mu-button>-->
-              </mu-card-actions>
-            </mu-card>
+        <mu-row>
+          <mu-col v-for="(item, idx) in products" :key="idx">
+            <div class="wrapper">
+              <div class="product-img">
+                <img v-if="item.img" :src="item.img" height="420" width="auto">
+              </div>
+              <div class="product-info">
+                <div class="product-text">
+                  <h1>{{item.name}}</h1>
+                  <h2>Rating: {{item.rating}} stars</h2>
+                  <p>Harvest Vases are a reinterpretation<br> of peeler to be sliced and pulled aside,<br> allowing room for growth. </p>
+                </div>
+                <div class="product-price-btn">
+                <button type="button" @click="editRedirect(idx)">Edit</button>
+              </div>
+              </div>
+           </div>
           </mu-col>
-      </mu-row>
+        </mu-row>
       </mu-container>
       </div>
     </div>
@@ -74,10 +70,130 @@ export default {
   margin-top: 5%;
 }
 .productimage {
-  width: auto;
-  max-height: 300px;
+  width: auto; /* you can use % */
+  height: 14em;
 }
 .col {
     margin-bottom: 18px;
-    }
+}
+
+.wrapper {
+  height: 420px;
+  width: 654px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  float: left;
+  height: 420px;
+  width: 327px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.product-img img {
+  border-radius: 7px 0 0 7px;
+  padding: 10px 0px 10px 0px;
+}
+
+.product-info {
+  float: left;
+  height: 420px;
+  width: 327px;
+  border-radius: 0 7px 10px 7px;
+  background-color: #fae1e1;
+}
+
+.product-text {
+  height: 300px;
+  width: 327px;
+}
+
+.product-text h1 {
+  margin: 0 0 0 38px;
+  padding-top: 52px;
+  font-size: 34px;
+  color: #474747;
+}
+
+.product-text h1,
+.product-price-btn p {
+  font-family: 'Bentham', serif;
+}
+
+.product-text h2 {
+  margin: 0 0 47px 38px;
+  font-size: 13px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #838383;
+  letter-spacing: 0.2em;
+}
+
+.product-text p {
+  height: 125px;
+  margin: 0 0 0 38px;
+  font-family: 'Playfair Display', serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+.product-price-btn {
+  height: 103px;
+  width: 327px;
+  margin-top: 17px;
+  position: relative;
+}
+
+.product-price-btn p {
+  display: inline-block;
+  position: absolute;
+  top: -13px;
+  height: 50px;
+  font-family: 'Trocchi', serif;
+  margin: 0 0 0 38px;
+  font-size: 28px;
+  font-weight: lighter;
+  color: #474747;
+}
+
+span {
+  display: inline-block;
+  height: 50px;
+  font-family: 'Suranna', serif;
+  font-size: 34px;
+}
+
+.product-price-btn button {
+  float: right;
+  display: inline-block;
+  height: 50px;
+  width: 176px;
+  margin: 0 40px 0 16px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #142af3;
+  cursor: pointer;
+  outline: none;
+}
+
+.product-price-btn button:hover {
+  background-color: #638eeb;
+}
 </style>

@@ -13,9 +13,10 @@
               </div>
               <div class="product-info">
                 <div class="product-text">
-                  <h1>{{item.name}}</h1>
-                  <h2>Rating: {{item.rating}} stars</h2>
-                  <p>Harvest Vases are a reinterpretation<br> of peeler to be sliced and pulled aside,<br> allowing room for growth. </p>
+                  <h1>{{item.brand}}</h1>
+                  <h2>{{item.name}}</h2>
+                  <!--<h2>Rating: {{item.rating}} stars</h2>-->
+                  <p>{{item.description}}</p>
                 </div>
                 <div class="product-price-btn">
                 <button type="button" @click="editRedirect(idx)">Edit</button>

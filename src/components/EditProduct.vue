@@ -5,6 +5,9 @@
       <app-bar/>
       <div class="page-wrap sizing">
       <mu-flex justify-content="center">
+          <mu-text-field label="Brand" v-model="product.brand"/>
+      </mu-flex>
+      <mu-flex justify-content="center">
           <mu-text-field label="Name" v-model="product.name"/>
       </mu-flex>
       <mu-flex justify-content="center">
@@ -12,6 +15,9 @@
       </mu-flex>
       <mu-flex justify-content="center">
         <mu-text-field label="Image Link" v-model="product.img"/>
+      </mu-flex>
+      <mu-flex justify-content="center">
+        <mu-text-field multi-line label="Description" v-model="product.description"/>
       </mu-flex>
         <mu-flex justify-content="center">
           <mu-button @click="writeData">Save</mu-button>
@@ -37,17 +43,21 @@ export default {
       productId: null,
       product: {
         name: null,
+        brand: null,
         rating: null,
-        img: null
+        img: null,
+        description: null
       }
     }
   },
   methods: {
     writeData: function () {
       var ref = firebase.database().ref('products/' + this.productId).set({
+        brand: this.product.brand,
         name: this.product.name,
         rating: this.product.rating,
-        img: this.product.img
+        img: this.product.img,
+        description: this.product.description
       })
       console.log(ref.toString())
     },

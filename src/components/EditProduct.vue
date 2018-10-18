@@ -58,6 +58,8 @@ export default {
         rating: this.product.rating,
         img: this.product.img,
         description: this.product.description
+      }).then(() => {
+        this.$emit('propagate-event', 'success', 'Saved')
       })
       console.log(ref.toString())
     },

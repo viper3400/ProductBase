@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view v-on:propagate-event="openSnackbar"/>
-    <mu-snackbar :color="this.snackbar.color" position="top-end" :open.sync="this.snackbar.open">{{snackbar.message}}</mu-snackbar>
+    <mu-snackbar :color="this.snackbar.color" position="bottom-start" :open.sync="this.snackbar.open">{{snackbar.message}}</mu-snackbar>
   </div>
 </template>
 

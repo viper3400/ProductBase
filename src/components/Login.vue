@@ -43,7 +43,7 @@ export default {
           this.$router.replace('entrylist')
         },
         (err) => {
-          alert('Oops. ' + err.message)
+          this.$emit('propagate-event', 'error', err.message)
         }
       )
     }

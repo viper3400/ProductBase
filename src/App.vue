@@ -1,13 +1,35 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view v-on:propagate-event="openSnackbar"/>
+    <mu-snackbar :color="this.snackbar.color" position="top-end" :open.sync="this.snackbar.open">{{snackbar.message}}</mu-snackbar>
   </div>
 </template>
 
 <script>
 // https://medium.com/@anas.mammeri/vue-2-firebase-how-to-build-a-vue-app-with-firebase-authentication-system-in-15-minutes-fdce6f289c3c
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      snackbar: {
+        open: false,
+        timeout: 3000,
+        message: null,
+        color: null
+      }
+    }
+  },
+  methods: {
+    openSnackbar: function (type, msg) {
+      if (this.snackbar.timer) clearTimeout(this.snackbar.timer)
+      this.snackbar.color = type
+      this.snackbar.message = msg
+      this.snackbar.open = true
+      this.snackbar.timer = setTimeout(() => {
+        this.snackbar.open = false
+      }, this.snackbar.timeout)
+    }
+  }
 }
 </script>
 

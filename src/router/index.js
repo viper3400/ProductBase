@@ -32,7 +32,7 @@ let router = new Router({
     },
     {
       path: '/createproduct',
-      name: 'EditProduct',
+      name: 'CreateProduct',
       component: EditProduct,
       meta: {
         requiresAuth: true
@@ -46,7 +46,7 @@ router.beforeEach((to, from, next) => {
   let requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
   if (requiresAuth && !currentUser) next('/')
-  else if (!requiresAuth && currentUser) next('entryList')
+  // else if (!requiresAuth && currentUser) next('entryList')
   else next()
 })
 

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import CreateEntry from '@/components/CreateEntry'
 import EntryList from '@/components/EntryList'
 import EditProduct from '@/components/EditProduct'
 import Login from '@/components/Login'
@@ -14,14 +13,6 @@ let router = new Router({
       path: '/',
       name: 'Login',
       component: Login
-    },
-    {
-      path: '/createentry',
-      name: 'CreateEntry',
-      component: CreateEntry,
-      meta: {
-        requiresAuth: true
-      }
     },
     {
       path: '/entrylist',

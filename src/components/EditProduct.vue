@@ -59,7 +59,7 @@ export default {
         img: this.product.img,
         description: this.product.description
       }).then(() => {
-        this.$emit('propagate-event', 'success', 'Saved')
+        this.$emit('propagate-event', 'success', 'Saved successfully.')
       })
       console.log(ref.toString())
     },
@@ -72,7 +72,9 @@ export default {
   },
   mounted () {
     this.productId = this.$route.params.id
-    this.readData(this.productId)
+    if (this.productId != null) {
+      this.readData(this.productId)
+    } else this.$emit('propagate-event', 'info', 'Creating new entry.')
   }
 }
 </script>

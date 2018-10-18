@@ -9,7 +9,12 @@
     <mu-list slot="content">
       <mu-list-item button to="/entrylist">
         <mu-list-item-content>
-          <mu-list-item-title>Products</mu-list-item-title>
+          <mu-list-item-title>Product List</mu-list-item-title>
+        </mu-list-item-content>
+      </mu-list-item>
+       <mu-list-item button to="/createproduct">
+        <mu-list-item-content>
+          <mu-list-item-title>Create New Product</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
       <mu-list-item button @click="signOut">

@@ -38,6 +38,14 @@ let router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/createproduct',
+      name: 'EditProduct',
+      component: EditProduct,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })

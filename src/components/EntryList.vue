@@ -13,9 +13,9 @@
               </div>
               <div class="product-info">
                 <div class="product-text">
+                  <vue-stars :name="'star' + idx" class="product-text-stars" :value="item.rating" :readonly="true" shadowColor="black"/>
                   <h1>{{item.brand}}</h1>
                   <h2>{{item.name}}</h2>
-                  <!--<h2>Rating: {{item.rating}} stars</h2>-->
                   <p>{{item.description}}</p>
                 </div>
                 <div class="product-price-btn">
@@ -35,6 +35,7 @@
 import firebase from 'firebase'
 import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
+import VueStars from 'vue-stars'
 
 export default {
   name: 'EntryList',
@@ -45,7 +46,8 @@ export default {
   },
   components: {
     BackgroundImage,
-    AppBar
+    AppBar,
+    VueStars
   },
   methods: {
     readData: function () {
@@ -117,7 +119,6 @@ export default {
 
 .product-text h1 {
   margin: 0 0 0 38px;
-  padding-top: 52px;
   font-size: 34px;
   color: #474747;
 }
@@ -148,6 +149,11 @@ export default {
   overflow: hidden;
 }
 
+.product-text-stars {
+  text-align: center;
+  margin: 0 0 0 38px;
+  padding-top: 52px;
+}
 .product-price-btn {
   height: 103px;
   width: 327px;

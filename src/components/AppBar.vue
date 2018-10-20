@@ -22,6 +22,11 @@
           <mu-list-item-title>SignOut</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
+      <mu-list-item>
+        <mu-list-item-content>
+          V1.0.0
+        </mu-list-item-content>
+      </mu-list-item>
     </mu-list>
   </mu-menu>
 </mu-appbar>

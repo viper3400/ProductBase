@@ -140,7 +140,7 @@ a {
 }
 
 .sizing {
-  width: 60%%;
+  width: 60%;
   margin: 0 auto;
   margin-top: 5%;
 }

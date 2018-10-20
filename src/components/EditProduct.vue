@@ -10,14 +10,21 @@
         <mu-flex justify-content="center">
             <mu-text-field class="flexbox" label="Name" v-model="product.name"/>
         </mu-flex>
-        <mu-flex justify-content="center">
+        <!--mu-flex justify-content="center">
           <mu-text-field class="flexbox" label="Bewertung" v-model="product.rating"/>
-        </mu-flex>
+        </mu-flex-->
         <mu-flex justify-content="center">
           <mu-text-field class="flexbox" label="Image Link" v-model="product.img"/>
         </mu-flex>
         <mu-flex justify-content="center">
           <mu-text-field class="flexbox" :rows-max="5" multi-line label="Description" v-model="product.description"/>
+        </mu-flex>
+        <mu-flex justify-content="center">
+          <mu-form class="flexbox">
+            <mu-form-item label="Rating">
+          <vue-stars class="stars" name="stars" v-model="product.rating" shadowColor="black" hoverColor="orange"/>
+            </mu-form-item>
+          </mu-form>
         </mu-flex>
           <mu-flex justify-content="center">
             <mu-container class="button-wrapper">
@@ -31,15 +38,18 @@
 </template>
 
 <script>
+// https://github.com/richardtallent/vue-stars
 import firebase from 'firebase'
 import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
+import VueStars from 'vue-stars'
 
 export default {
   name: 'EditProduct',
   components: {
     BackgroundImage,
-    AppBar
+    AppBar,
+    VueStars
   },
   data () {
     return {
@@ -47,7 +57,7 @@ export default {
       product: {
         name: '',
         brand: '',
-        rating: '',
+        rating: 0,
         img: '',
         description: ''
       }
@@ -147,6 +157,11 @@ a {
 .flexbox {
   width: 80%;
 }
+
+.stars {
+  font-size: 3em;
+}
+
 .button-wrapper {
   text-align: center;
   margin: 8px;

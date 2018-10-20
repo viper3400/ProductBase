@@ -5,19 +5,19 @@
       <app-bar/>
       <div class="page-wrap sizing">
         <mu-flex justify-content="center">
-            <mu-text-field label="Brand" v-model="product.brand"/>
+            <mu-text-field class="flexbox" label="Brand" v-model="product.brand"/>
         </mu-flex>
         <mu-flex justify-content="center">
-            <mu-text-field label="Name" v-model="product.name"/>
+            <mu-text-field class="flexbox" label="Name" v-model="product.name"/>
         </mu-flex>
         <mu-flex justify-content="center">
-          <mu-text-field label="Bewertung" v-model="product.rating"/>
+          <mu-text-field class="flexbox" label="Bewertung" v-model="product.rating"/>
         </mu-flex>
         <mu-flex justify-content="center">
-          <mu-text-field label="Image Link" v-model="product.img"/>
+          <mu-text-field class="flexbox" label="Image Link" v-model="product.img"/>
         </mu-flex>
         <mu-flex justify-content="center">
-          <mu-text-field multi-line label="Description" v-model="product.description"/>
+          <mu-text-field class="flexbox" :rows-max="5" multi-line label="Description" v-model="product.description"/>
         </mu-flex>
           <mu-flex justify-content="center">
             <mu-container class="button-wrapper">
@@ -144,7 +144,9 @@ a {
   margin: 0 auto;
   margin-top: 5%;
 }
-
+.flexbox {
+  width: 80%;
+}
 .button-wrapper {
   text-align: center;
   margin: 8px;

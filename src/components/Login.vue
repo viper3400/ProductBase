@@ -5,10 +5,10 @@
       <mu-flex class="flex-demo" justify-content="center">
         <mu-form ref="form" :model="validateForm" class="mu-login-form">
           <mu-form-item label="Username" prop="username">
-            <mu-text-field v-model="validateForm.username" prop="username"></mu-text-field>
+            <mu-text-field v-model="validateForm.username" prop="username" @keyup.enter="signIn"></mu-text-field>
           </mu-form-item>
           <mu-form-item label="Password" prop="password">
-            <mu-text-field type="password" v-model="validateForm.password" prop="password"></mu-text-field>
+            <mu-text-field type="password" v-model="validateForm.password" prop="password" @keyup.enter="signIn"></mu-text-field>
           </mu-form-item>
           <mu-form-item>
              <mu-button color="primary" @click="signIn">Sign In</mu-button>

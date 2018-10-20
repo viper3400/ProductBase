@@ -5,33 +5,30 @@
       <app-bar/>
       <div class="page-wrap sizing">
         <mu-flex justify-content="center">
-            <mu-text-field class="flexbox" label="Brand" v-model="product.brand"/>
-        </mu-flex>
-        <mu-flex justify-content="center">
-            <mu-text-field class="flexbox" label="Name" v-model="product.name"/>
-        </mu-flex>
-        <!--mu-flex justify-content="center">
-          <mu-text-field class="flexbox" label="Bewertung" v-model="product.rating"/>
-        </mu-flex-->
-        <mu-flex justify-content="center">
-          <mu-text-field class="flexbox" label="Image Link" v-model="product.img"/>
-        </mu-flex>
-        <mu-flex justify-content="center">
-          <mu-text-field class="flexbox" :rows-max="5" multi-line label="Description" v-model="product.description"/>
-        </mu-flex>
-        <mu-flex justify-content="center">
-          <mu-form class="flexbox">
-            <mu-form-item label="Rating">
-          <vue-stars class="stars" name="stars" v-model="product.rating" shadowColor="black" hoverColor="orange"/>
+          <mu-form class="edit-form" :model="product">
+            <mu-form-item prop="input" label="Brand">
+              <mu-text-field v-model="product.brand"/>
+            </mu-form-item>
+            <mu-form-item prop="input" label="Name">
+              <mu-text-field v-model="product.name"/>
+            </mu-form-item>
+            <mu-form-item prop="input" label="Image Link">
+              <mu-text-field v-model="product.img"/>
+            </mu-form-item>
+            <mu-form-item prop="input" label="Description">
+              <mu-text-field :rows-max="5" multi-line v-model="product.description"/>
+            </mu-form-item>
+            <mu-form-item prop="textarea" label="Rating">
+              <vue-stars class="stars" name="stars" v-model="product.rating" shadowColor="black" hoverColor="orange"/>
+            </mu-form-item>
+            <mu-form-item >
+              <mu-container class="button-wrapper">
+                <mu-button color="primary" @click="writeData">Save</mu-button>
+                <mu-button color="primary" :disabled="!this.isProductIdSet" @click="deleteData">Delete</mu-button>
+              </mu-container>
             </mu-form-item>
           </mu-form>
         </mu-flex>
-          <mu-flex justify-content="center">
-            <mu-container class="button-wrapper">
-              <mu-button color="primary" @click="writeData">Save</mu-button>
-              <mu-button color="primary" :disabled="!this.isProductIdSet" @click="deleteData">Delete</mu-button>
-            </mu-container>
-          </mu-flex>
         </div>
       </div>
     </div>
@@ -154,7 +151,7 @@ a {
   margin: 0 auto;
   margin-top: 5%;
 }
-.flexbox {
+.edit-form {
   width: 80%;
 }
 
@@ -163,7 +160,7 @@ a {
 }
 
 .button-wrapper {
-  text-align: center;
+  text-align: right;
   margin: 8px;
 }
 </style>

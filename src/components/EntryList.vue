@@ -22,9 +22,6 @@
                   {{$ml.get('price')}}: {{item.price}}<br>
                   {{$ml.get('description')}}: {{item.description}}</p>
                 </div>
-                <!--div class="product-price-btn"-->
-                <!--div class="product-edit-btn"-->
-                <!--button type="button" @click="editRedirect(item['.key'])">{{$ml.get('edit')}}</button-->
                 <mu-container>
                   <mu-flex justify-content="end">
                 <mu-button @click="editRedirect(item['.key'])" small fab color="indigo400">
@@ -32,7 +29,6 @@
                 </mu-button>
                   </mu-flex>
                 </mu-container>
-              <!--/div-->
               </div>
            </div>
           </mu-col>

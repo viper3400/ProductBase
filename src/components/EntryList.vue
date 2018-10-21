@@ -40,7 +40,14 @@ import db from '../firebase.js'
 export default {
   name: 'EntryList',
   firebase: {
-    products: db.ref('products')
+    products: {
+      source: db.ref('products'),
+      readyCallback: function () {
+        this.products = this.products.sort(function (o1, o2) {
+          return o2.rating - o1.rating
+        })
+      }
+    }
   },
   data () {
     return {
@@ -56,7 +63,7 @@ export default {
       this.$router.push('/editproduct/' + id)
     }
   },
-  updated () {
+  created () {
     console.log(this.products)
   }
 }

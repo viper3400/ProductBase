@@ -6,25 +6,25 @@
       <div class="page-wrap sizing">
         <mu-flex justify-content="center">
           <mu-form class="edit-form" :model="product">
-            <mu-form-item prop="input" label="Brand">
+            <mu-form-item prop="input" :label="$ml.get('brand')">
               <mu-text-field v-model="product.brand"/>
             </mu-form-item>
-            <mu-form-item prop="input" label="Name">
+            <mu-form-item prop="input" :label="$ml.get('productName')">
               <mu-text-field v-model="product.name"/>
             </mu-form-item>
-            <mu-form-item prop="input" label="Image Link">
+            <mu-form-item prop="input" :label="$ml.get('imageLink')">
               <mu-text-field v-model="product.img"/>
             </mu-form-item>
-            <mu-form-item prop="input" label="Description">
+            <mu-form-item prop="input" :label="$ml.get('description')">
               <mu-text-field :rows-max="5" multi-line v-model="product.description"/>
             </mu-form-item>
-            <mu-form-item prop="textarea" label="Rating">
+            <mu-form-item prop="textarea" :label="$ml.get('rating')">
               <vue-stars class="stars" name="stars" v-model="product.rating" shadowColor="black" hoverColor="orange"/>
             </mu-form-item>
             <mu-form-item >
               <mu-container class="button-wrapper">
-                <mu-button color="primary" @click="writeData">Save</mu-button>
-                <mu-button color="primary" :disabled="!this.isProductIdSet" @click="deleteData">Delete</mu-button>
+                <mu-button color="primary" @click="writeData">{{$ml.get('save')}}</mu-button>
+                <mu-button color="primary" :disabled="!this.isProductIdSet" @click="deleteData">{{$ml.get('delete')}}</mu-button>
               </mu-container>
             </mu-form-item>
           </mu-form>

@@ -9,6 +9,7 @@ import 'muse-ui/dist/muse-ui.css'
 // import firebasconf from './firebaseconf.js'
 import VueFire from 'vuefire'
 // import db from './firebase'
+import './ml'
 
 let app
 

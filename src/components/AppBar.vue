@@ -3,28 +3,28 @@
   <mu-button icon slot="left">
     <mu-icon value="menu"></mu-icon>
   </mu-button>
-  Gin, please!
+  {{$ml.get('title')}}
   <mu-menu slot="right">
     <mu-button flat>MENU</mu-button>
     <mu-list slot="content">
       <mu-list-item button to="/entrylist">
         <mu-list-item-content>
-          <mu-list-item-title>Product List</mu-list-item-title>
+          <mu-list-item-title>{{$ml.get('productList')}}</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
        <mu-list-item button to="/createproduct">
         <mu-list-item-content>
-          <mu-list-item-title>Create New Product</mu-list-item-title>
+          <mu-list-item-title>{{$ml.get('createNewProduct')}}</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
       <mu-list-item button @click="signOut">
         <mu-list-item-content>
-          <mu-list-item-title>SignOut</mu-list-item-title>
+          <mu-list-item-title>{{$ml.get('signOut')}}</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
       <mu-list-item>
         <mu-list-item-content>
-          V1.0.0
+          V1.1.0
         </mu-list-item-content>
       </mu-list-item>
     </mu-list>
@@ -34,6 +34,7 @@
 
 <script>
 import firebase from 'firebase'
+import { MLBuilder } from 'vue-multilanguage'
 
 export default {
   name: 'AppBar',

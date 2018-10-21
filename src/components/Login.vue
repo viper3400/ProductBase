@@ -4,14 +4,14 @@
     <mu-flex class="flex-wrapper page-wrap overlay" justify-content="center">
       <mu-flex class="flex-demo" justify-content="center">
         <mu-form ref="form" :model="validateForm" class="mu-login-form">
-          <mu-form-item label="Username" prop="username">
+          <mu-form-item :label="$ml.get('userEmail')" prop="username">
             <mu-text-field v-model="validateForm.username" prop="username" @keyup.enter="signIn"></mu-text-field>
           </mu-form-item>
-          <mu-form-item label="Password" prop="password">
+          <mu-form-item :label="$ml.get('password')" prop="password">
             <mu-text-field type="password" v-model="validateForm.password" prop="password" @keyup.enter="signIn"></mu-text-field>
           </mu-form-item>
           <mu-form-item>
-             <mu-button color="primary" @click="signIn">Sign In</mu-button>
+             <mu-button color="primary" @click="signIn">{{$ml.get('signIn')}}</mu-button>
           </mu-form-item>
         </mu-form>
       </mu-flex>
@@ -22,6 +22,7 @@
 <script>
 import firebase from 'firebase'
 import BackgroundImage from '@/Components/BackgroundImage'
+import { MLBuilder } from 'vue-multilanguage'
 
 export default {
   name: 'Login',

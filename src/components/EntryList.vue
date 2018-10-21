@@ -19,7 +19,7 @@
                   <p>{{item.description}}</p>
                 </div>
                 <div class="product-price-btn">
-                <button type="button" @click="editRedirect(item['.key'])">Edit</button>
+                <button type="button" @click="editRedirect(item['.key'])">{{$ml.get('edit')}}</button>
               </div>
               </div>
            </div>
@@ -36,6 +36,7 @@ import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
 import VueStars from 'vue-stars'
 import db from '../firebase.js'
+import { MLBuilder } from 'vue-multilanguage'
 
 export default {
   name: 'EntryList',

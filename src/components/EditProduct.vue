@@ -15,6 +15,15 @@
             <mu-form-item prop="input" :label="$ml.get('imageLink')">
               <mu-text-field v-model="product.img"/>
             </mu-form-item>
+            <mu-form-item prop="input" :label="$ml.get('fillingQuantity')">
+              <mu-text-field v-model="product.fillingQuantity"/>
+            </mu-form-item>
+            <mu-form-item prop="input" :label="$ml.get('alcoholStrength')">
+              <mu-text-field v-model="product.alcoholStrength"/>
+            </mu-form-item>
+            <mu-form-item prop="input" :label="$ml.get('price')">
+              <mu-text-field v-model="product.price"/>
+            </mu-form-item>
             <mu-form-item prop="input" :label="$ml.get('description')">
               <mu-text-field :rows-max="5" multi-line v-model="product.description"/>
             </mu-form-item>
@@ -58,7 +67,10 @@ export default {
         brand: '',
         rating: 0,
         img: '',
-        description: ''
+        description: '',
+        alcoholStrength: '',
+        fillingQuantity: '',
+        price: ''
       }
     }
   },

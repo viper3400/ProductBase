@@ -22,7 +22,10 @@ export default new MLCreate({
       productName: 'Name',
       imageLink: 'Image Link',
       rating: 'Rating',
-      description: 'Description'
+      description: 'Description',
+      alcoholStrength: 'Alcohol Strength',
+      fillingQuantity: 'Filling Quantity',
+      price: 'Price'
     }),
 
     new MLanguage('german').create({
@@ -40,7 +43,10 @@ export default new MLCreate({
       productName: 'Name / Bezeichnung',
       imageLink: 'Link zum Bild',
       rating: 'Bewertung',
-      description: 'Beschreibung'
+      description: 'Beschreibung',
+      alcoholStrength: 'Alkoholgehalt',
+      fillingQuantity: 'Füllmenge',
+      price: 'Preis'
     })
   ]
 })

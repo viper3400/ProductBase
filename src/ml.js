@@ -22,7 +22,7 @@ export default new MLCreate({
       productName: 'Name',
       imageLink: 'Image Link',
       rating: 'Rating',
-      description: 'Description',
+      description: 'Description / Taste',
       alcoholStrength: 'Alcohol Strength',
       fillingQuantity: 'Filling Quantity',
       price: 'Price'
@@ -43,7 +43,7 @@ export default new MLCreate({
       productName: 'Name / Bezeichnung',
       imageLink: 'Link zum Bild',
       rating: 'Bewertung',
-      description: 'Beschreibung',
+      description: 'Beschreibung / Geschmack',
       alcoholStrength: 'Alkoholgehalt',
       fillingQuantity: 'Füllmenge',
       price: 'Preis'

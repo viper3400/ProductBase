@@ -36,10 +36,10 @@
 
 <script>
 // https://github.com/richardtallent/vue-stars
-import firebase from 'firebase'
 import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
 import VueStars from 'vue-stars'
+import db from '../firebase.js'
 
 export default {
   name: 'EditProduct',
@@ -47,6 +47,8 @@ export default {
     BackgroundImage,
     AppBar,
     VueStars
+  },
+  firebase: {
   },
   data () {
     return {
@@ -67,49 +69,23 @@ export default {
       } else this.createData()
     },
     updateData: function () {
-      var ref = firebase.database().ref('products/' + this.productId)
-      ref.set({
-        brand: this.product.brand,
-        name: this.product.name,
-        rating: this.product.rating,
-        img: this.product.img,
-        description: this.product.description
-      }).then(() => {
-        this.$emit('propagate-event', 'success', 'Saved successfully. ' + this.productId.toString())
-      })
+      const copy = {...this.product}
+      delete copy['.key']
+      db.ref('products').child(this.productId).set(copy)
     },
     createData: function () {
-      var productListRef = firebase.database().ref('products/')
-      var ref = productListRef.push()
-      ref.set({
-        brand: this.product.brand,
-        name: this.product.name,
-        rating: this.product.rating,
-        img: this.product.img,
-        description: this.product.description
-      }).then(() => {
-        this.$emit('propagate-event', 'success', 'Created successfully. ' + ref.key)
-        this.productId = ref.key
-        this.$router.push({ path: '/editproduct/' + ref.key })
-      })
+      var ref = db.ref('products').push(this.product)
+      this.$emit('propagate-event', 'success', 'Created new entry.' + ref.key)
+      this.productId = ref.key
+      this.$router.push({ path: '/editproduct/' + ref.key })
     },
     readData: function (productId) {
-      var ref = firebase.database().ref('products/' + productId)
-      ref.once('value').then((snapshot) => {
-        this.product = snapshot.val()
-      })
+      this.$bindAsObject('product', db.ref('products').child(this.productId), null, () => console.log(this.product))
     },
     deleteData: function () {
-      var adaRef = firebase.database().ref('products/' + this.productId)
-      adaRef.remove()
-        .then(() => {
-          console.log('removed')
-          this.$emit('propagate-event', 'success', 'Removed successfully.')
-          this.$router.push({ path: '/entrylist' })
-        })
-        .catch(function (error) {
-          this.$emit('propagate-event', 'error', 'Remove failed: ' + error.message)
-        })
+      db.ref('products').child(this.productId).remove()
+      this.$emit('propagate-event', 'success', 'Removed item')
+      this.$router.push({ path: '/entrylist' })
     }
   },
   mounted () {

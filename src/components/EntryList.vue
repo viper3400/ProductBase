@@ -19,7 +19,7 @@
                   <p>{{item.description}}</p>
                 </div>
                 <div class="product-price-btn">
-                <button type="button" @click="editRedirect(idx)">Edit</button>
+                <button type="button" @click="editRedirect(item['.key'])">Edit</button>
               </div>
               </div>
            </div>
@@ -32,16 +32,18 @@
 </template>
 
 <script>
-import firebase from 'firebase'
 import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
 import VueStars from 'vue-stars'
+import db from '../firebase.js'
 
 export default {
   name: 'EntryList',
+  firebase: {
+    products: db.ref('products')
+  },
   data () {
     return {
-      products: []
     }
   },
   components: {
@@ -50,18 +52,12 @@ export default {
     VueStars
   },
   methods: {
-    readData: function () {
-      var ref = firebase.database().ref('products')
-      ref.once('value').then((snapshot) => {
-        this.products = snapshot.val()
-      })
-    },
     editRedirect: function (id) {
       this.$router.push('/editproduct/' + id)
     }
   },
-  mounted () {
-    this.readData()
+  updated () {
+    console.log(this.products)
   }
 }
 </script>

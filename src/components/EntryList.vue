@@ -15,12 +15,24 @@
                 <div class="product-text">
                   <vue-stars :name="'star' + idx" class="product-text-stars" :value="item.rating" :readonly="true" shadowColor="black"/>
                   <h1>{{item.brand}}</h1>
-                  <h2>{{item.name}}</h2>
-                  <p>{{item.description}}</p>
+                  <h2 v-if="item.name">{{item.name}}</h2>
+                  <p>
+                  {{$ml.get('fillingQuantity')}}: {{item.fillingQuantity}}<br>
+                  {{$ml.get('alcoholStrength')}}: {{item.alcoholStrength}}<br>
+                  {{$ml.get('price')}}: {{item.price}}<br>
+                  {{$ml.get('description')}}: {{item.description}}</p>
                 </div>
-                <div class="product-price-btn">
-                <button type="button" @click="editRedirect(item['.key'])">{{$ml.get('edit')}}</button>
-              </div>
+                <!--div class="product-price-btn"-->
+                <!--div class="product-edit-btn"-->
+                <!--button type="button" @click="editRedirect(item['.key'])">{{$ml.get('edit')}}</button-->
+                <mu-container>
+                  <mu-flex justify-content="end">
+                <mu-button @click="editRedirect(item['.key'])" small fab color="indigo400">
+                  <mu-icon value="edit"></mu-icon>
+                </mu-button>
+                  </mu-flex>
+                </mu-container>
+              <!--/div-->
               </div>
            </div>
           </mu-col>
@@ -116,7 +128,7 @@ export default {
 }
 
 .product-text {
-  height: 300px;
+  height: 350px;
   width: 327px;
 }
 
@@ -143,7 +155,7 @@ export default {
 
 .product-text p {
   height: 125px;
-  margin: 0 0 0 38px;
+  margin: 0 10px 0 38px;
   font-family: 'Playfair Display', serif;
   color: #8d8d8d;
   line-height: 1.7em;
@@ -201,6 +213,12 @@ span {
   background-color: #142af3;
   cursor: pointer;
   outline: none;
+}
+
+.product-edit-btn {
+  float: right;
+  margin: 0 40px 0 5px;
+  bottom: 0;
 }
 
 .product-price-btn button:hover {

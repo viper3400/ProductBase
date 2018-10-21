@@ -43,9 +43,9 @@ export default new MLCreate({
       productName: 'Name / Bezeichnung',
       imageLink: 'Link zum Bild',
       rating: 'Bewertung',
-      description: 'Beschreibung / Geschmack',
+      description: 'Geschmack',
       alcoholStrength: 'Alkoholgehalt',
-      fillingQuantity: 'Füllmenge',
+      fillingQuantity: 'Inhalt',
       price: 'Preis'
     })
   ]

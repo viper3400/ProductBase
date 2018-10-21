@@ -36,7 +36,6 @@ import AppBar from '@/Components/AppBar'
 import BackgroundImage from '@/Components/BackgroundImage'
 import VueStars from 'vue-stars'
 import db from '../firebase.js'
-import { MLBuilder } from 'vue-multilanguage'
 
 export default {
   name: 'EntryList',

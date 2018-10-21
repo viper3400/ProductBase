@@ -22,7 +22,6 @@
 <script>
 import firebase from 'firebase'
 import BackgroundImage from '@/Components/BackgroundImage'
-import { MLBuilder } from 'vue-multilanguage'
 
 export default {
   name: 'Login',

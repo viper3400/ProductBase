@@ -5,11 +5,12 @@
 <script>
 export default {
   name: 'BackgroundImage',
-  data () {
-    return {
-      backgroundImgUrl: 'https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'
+  computed: {
+    backgroundImgUrl () {
+      return require('@/assets/bar2.jpg')
     }
   }
+
 }
 </script>
 

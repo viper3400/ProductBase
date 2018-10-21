@@ -34,7 +34,6 @@
 
 <script>
 import firebase from 'firebase'
-import { MLBuilder } from 'vue-multilanguage'
 
 export default {
   name: 'AppBar',

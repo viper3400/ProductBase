@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-on:propagate-event="openSnackbar"/>
+    <router-view v-on:propagate-event="openSnackbar" :key="$route.fullPath"/>
     <mu-snackbar :color="this.snackbar.color" position="bottom-start" :open.sync="this.snackbar.open">{{snackbar.message}}</mu-snackbar>
   </div>
 </template>

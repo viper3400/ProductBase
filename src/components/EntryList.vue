@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="overlay">
+    <div>
       <app-bar/>
       <div class="page-wrap sizing">
       <mu-container v-if="products">
@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .sizing {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 5%;
 }

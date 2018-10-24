@@ -1,8 +1,11 @@
 <template>
   <div>
-    <mu-flex class="flex-wrapper page-wrap" justify-content="center">
+    <mu-flex class="flex-wrapper page-wrap sizing" justify-content="center">
       <mu-flex class="flex-demo" justify-content="center">
-        <mu-form ref="form" :model="validateForm" class="mu-login-form">
+        <mu-form ref="form" :model="validateForm">
+          <mu-form-item>
+            <h2>{{$ml.get('signIn')}}</h2>
+          </mu-form-item>
           <mu-form-item :label="$ml.get('userEmail')" prop="username">
             <mu-text-field v-model="validateForm.username" prop="username" @keyup.enter="signIn"></mu-text-field>
           </mu-form-item>
@@ -55,14 +58,15 @@ export default {
 }
 
 .flex-demo {
-  width: 60%;
+  width: 80%;
   height: 100%;
   background-color: #e0e0e0;
   text-align: left;
   line-height: 32px;
 }
-
-.mu-login-form {
-  width: 60%;
+.sizing {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <mu-snackbar :color="this.snackbar.color" position="bottom-start" :open.sync="this.snackbar.open">{{snackbar.message}}</mu-snackbar>
-      <mu-container fluid>
+      <mu-container fluid style="padding: 0 0 0 0;">
         <!--div class="imgBackground" :style="backgroundImgUrl"/-->
         <background-image/>
           <mu-row>
@@ -68,9 +68,9 @@ export default {
   margin-top: 10%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.85);
-  -moz-box-shadow: 0 0 20px black;
+  /*-moz-box-shadow: 0 0 20px black;
   -webkit-box-shadow: 0 0 20px black;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px black;*/
   color: black;
 }
 

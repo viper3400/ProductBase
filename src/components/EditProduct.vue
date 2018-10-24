@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div class="overlay">
+    <div>
       <app-bar/>
       <div class="page-wrap sizing">
         <mu-flex justify-content="center">
@@ -14,7 +14,7 @@
             <mu-form-item prop="input" :label="$ml.get('imageLink')">
               <mu-text-field v-model="product.img"/>
             </mu-form-item>
-            <mu-container>
+            <mu-container fluid style="padding: 0 0 0 0;">
               <mu-row gutter>
                 <mu-col>
               <mu-form-item prop="input" :label="$ml.get('fillingQuantity')">
@@ -142,7 +142,7 @@ a {
 }
 
 .sizing {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 5%;
 }
@@ -151,7 +151,7 @@ a {
 }
 
 .stars {
-  font-size: 3em;
+  font-size: 2rem;
 }
 
 .button-wrapper {

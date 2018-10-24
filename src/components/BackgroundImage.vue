@@ -1,12 +1,6 @@
 <template>
   <mu-container fluid>
-    <div class="imgBackground" :style="img">
-  <mu-row>
-    <mu-col>
-      <h1>Hallo</h1>
-    </mu-col>
-  </mu-row>
-    </div>
+    <div class="imgBackground" :style="img"/>
   </mu-container>
 </template>
 

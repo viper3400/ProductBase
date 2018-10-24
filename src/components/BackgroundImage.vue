@@ -23,7 +23,7 @@ export default {
 <style scoped>
 .imgBackground {
   /*background-image: url('http://fevertree1.d3r-cdn.com/images/default/12411-1639-fever-tree-mediterranean-mare-press-web.jpg');*/
-  background-repeat: no-repeat;
+  background-repeat: round;
   background-size: 100% auto;
   width: 100%;
   height: auto;
@@ -31,7 +31,6 @@ export default {
   top: 0;
   left: 0;
   min-height: 100%;
-  width: 100%;
   height: auto;
 }
 </style>

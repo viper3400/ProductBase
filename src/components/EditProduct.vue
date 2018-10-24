@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <background-image />
     <div class="overlay">
       <app-bar/>
       <div class="page-wrap sizing">
@@ -56,14 +55,12 @@
 <script>
 // https://github.com/richardtallent/vue-stars
 import AppBar from '@/Components/AppBar'
-import BackgroundImage from '@/Components/BackgroundImage'
 import VueStars from 'vue-stars'
 import db from '../firebase.js'
 
 export default {
   name: 'EditProduct',
   components: {
-    BackgroundImage,
     AppBar,
     VueStars
   },

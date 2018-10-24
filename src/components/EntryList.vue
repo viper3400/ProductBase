@@ -1,6 +1,5 @@
 <template>
   <div>
-    <background-image />
     <div class="overlay">
       <app-bar/>
       <div class="page-wrap sizing">
@@ -41,7 +40,6 @@
 
 <script>
 import AppBar from '@/Components/AppBar'
-import BackgroundImage from '@/Components/BackgroundImage'
 import VueStars from 'vue-stars'
 import db from '../firebase.js'
 
@@ -62,7 +60,6 @@ export default {
     }
   },
   components: {
-    BackgroundImage,
     AppBar,
     VueStars
   },

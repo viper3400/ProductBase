@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <router-view v-on:propagate-event="openSnackbar" :key="$route.fullPath"/>
     <mu-snackbar :color="this.snackbar.color" position="bottom-start" :open.sync="this.snackbar.open">{{snackbar.message}}</mu-snackbar>
+      <mu-container fluid>
+        <!--div class="imgBackground" :style="backgroundImgUrl"/-->
+        <background-image/>
+          <mu-row>
+            <mu-col>
+              <router-view v-on:propagate-event="openSnackbar" :key="$route.fullPath"/>
+            </mu-col>
+          </mu-row>
+        <!--/div-->
+  </mu-container>
   </div>
 </template>
 
 <script>
 // https://medium.com/@anas.mammeri/vue-2-firebase-how-to-build-a-vue-app-with-firebase-authentication-system-in-15-minutes-fdce6f289c3c
+import BackgroundImage from '@/Components/BackgroundImage'
+
 export default {
   name: 'App',
+  components: {
+    BackgroundImage
+  },
   data () {
     return {
       snackbar: {
@@ -17,6 +31,12 @@ export default {
         message: null,
         color: null
       }
+    }
+  },
+  computed: {
+    backgroundImgUrl () {
+      var img = require('@/assets/bar2.jpg')
+      return 'background-image: url(' + img + ');'
     }
   },
   methods: {
@@ -52,5 +72,18 @@ export default {
   -webkit-box-shadow: 0 0 20px black;
   box-shadow: 0 0 20px black;
   color: black;
+}
+
+.imgBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  min-width: 1024px;
+  /* Preserve aspet ratio */
+  min-height: 100%;
+  width: 100%;
+  height: auto;
 }
 </style>

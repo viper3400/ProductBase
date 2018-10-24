@@ -1,7 +1,6 @@
 <template>
   <div>
-    <background-image/>
-    <mu-flex class="flex-wrapper page-wrap overlay" justify-content="center">
+    <mu-flex class="flex-wrapper page-wrap" justify-content="center">
       <mu-flex class="flex-demo" justify-content="center">
         <mu-form ref="form" :model="validateForm" class="mu-login-form">
           <mu-form-item :label="$ml.get('userEmail')" prop="username">
@@ -21,7 +20,6 @@
 
 <script>
 import firebase from 'firebase'
-import BackgroundImage from '@/Components/BackgroundImage'
 
 export default {
   name: 'Login',
@@ -34,7 +32,6 @@ export default {
     }
   },
   components: {
-    BackgroundImage
   },
   methods: {
     signIn: function () {

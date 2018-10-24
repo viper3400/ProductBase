@@ -4,6 +4,36 @@
       <app-bar/>
       <div class="page-wrap sizing">
       <mu-container v-if="products">
+        <mu-row v-for="(item, idx) in products" :key="idx">
+          <mu-col span="12" sm="12" md="6">
+            <div>
+                <img class="product-img-rel" v-if="item.img" :src="item.img">
+              </div>
+          </mu-col>
+          <mu-col span="12" sm="12" md="6">
+          <div class="product-info product">
+                <div class="product-text">
+                  <vue-stars :name="'star' + idx" class="product-text-stars" :value="item.rating" :readonly="true" shadowColor="black"/>
+                  <h1>{{item.brand}}</h1>
+                  <h2 v-if="item.name">{{item.name}}</h2>
+                  <p>
+                  {{$ml.get('fillingQuantity')}}: {{item.fillingQuantity}}<br>
+                  {{$ml.get('alcoholStrength')}}: {{item.alcoholStrength}}<br>
+                  {{$ml.get('price')}}: {{item.price}}<br>
+                  {{$ml.get('description')}}: {{item.description}}</p>
+                </div>
+                <mu-container>
+                  <mu-flex justify-content="end">
+                <mu-button @click="editRedirect(item['.key'])" small fab color="indigo400">
+                  <mu-icon value="edit"></mu-icon>
+                </mu-button>
+                  </mu-flex>
+                </mu-container>
+              </div>
+          </mu-col>
+        </mu-row>
+      </mu-container>
+      <!--mu-container v-if="products">
         <mu-row>
           <mu-col v-for="(item, idx) in products" :key="idx">
             <div class="wrapper">
@@ -32,7 +62,7 @@
            </div>
           </mu-col>
         </mu-row>
-      </mu-container>
+      </mu-container-->
       </div>
     </div>
   </div>
@@ -80,8 +110,22 @@ export default {
   margin: 0 auto;
   margin-top: 5%;
 }
+
+.prduct-image-rel {
+  max-width: 80%
+}
+
+img {
+  max-width: 100%;
+}
+
+.product {
+  margin-left: 1rem;
+}
+
+/*
 .productimage {
-  width: auto; /* you can use % */
+  width: auto;
   height: 14em;
 }
 .col {
@@ -93,7 +137,6 @@ export default {
   width: 654px;
   margin: 50px auto;
   border-radius: 7px 7px 7px 7px;
-  /* VIA CSS MATIC https://goo.gl/cIbnS */
   -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
@@ -103,6 +146,14 @@ export default {
   float: left;
   height: 420px;
   width: 327px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.product-img-rel {
+  float: left;
+  height: 10rem;
+  width: auto;
   text-align: center;
   background-color: #ffffff;
 }
@@ -216,5 +267,5 @@ span {
 
 .product-price-btn button:hover {
   background-color: #638eeb;
-}
+}*/
 </style>

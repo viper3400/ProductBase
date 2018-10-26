@@ -16,17 +16,17 @@
             </mu-form-item>
             <mu-container fluid style="padding: 0 0 0 0;">
               <mu-row gutter>
-                <mu-col>
+                <mu-col span="12" sm="12" md="4">
               <mu-form-item prop="input" :label="$ml.get('fillingQuantity')">
                 <mu-text-field v-model="product.fillingQuantity"/>
               </mu-form-item>
                 </mu-col>
-                <mu-col>
+                <mu-col span="12" sm="12" md="4">
               <mu-form-item prop="input" :label="$ml.get('alcoholStrength')">
                 <mu-text-field v-model="product.alcoholStrength"/>
               </mu-form-item>
                 </mu-col>
-                <mu-col>
+                <mu-col span="12" sm="12" md="4">
               <mu-form-item prop="input" :label="$ml.get('price')">
                 <mu-text-field v-model="product.price"/>
               </mu-form-item>

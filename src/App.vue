@@ -17,6 +17,7 @@
 <script>
 // https://medium.com/@anas.mammeri/vue-2-firebase-how-to-build-a-vue-app-with-firebase-authentication-system-in-15-minutes-fdce6f289c3c
 import BackgroundImage from '@/Components/BackgroundImage'
+import 'typeface-roboto'
 
 export default {
   name: 'App',
@@ -55,7 +56,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

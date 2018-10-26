@@ -4,7 +4,7 @@
       <app-bar/>
       <div class="page-wrap sizing">
       <mu-container v-if="products">
-        <mu-row gutter class="product-card" v-for="(item, idx) in products" :key="idx">
+        <mu-row gutter class="product-rows" v-for="(item, idx) in products" :key="idx">
           <mu-col span="12" sm="12" md="6">
             <div class="product-img-container">
               <img class="product-img-rel" v-if="item.img" :src="item.img">
@@ -17,10 +17,12 @@
                   <h1>{{item.brand}}</h1>
                   <h2 v-if="item.name">{{item.name}}</h2>
                   <p>
-                  {{$ml.get('fillingQuantity')}}: {{item.fillingQuantity}}<br>
-                  {{$ml.get('alcoholStrength')}}: {{item.alcoholStrength}}<br>
-                  {{$ml.get('price')}}: {{item.price}}<br>
-                  {{$ml.get('description')}}: {{item.description}}</p>
+                  <strong>{{$ml.get('fillingQuantity')}}</strong> {{item.fillingQuantity}}<br>
+                  <strong>{{$ml.get('alcoholStrength')}}</strong> {{item.alcoholStrength}}<br>
+                  <strong>{{$ml.get('price')}}</strong> {{item.price}}
+                  </p>
+                  <h3>{{$ml.get('description')}}</h3>
+                  <p>{{item.description}}</p>
                 </div>
                 <mu-container class="product-info-button">
                   <mu-flex justify-content="start">
@@ -82,7 +84,7 @@ export default {
   margin-top: 5%;
 }
 
-.product-card {
+.product-rows {
   padding: 0 0 1rem 0;
 }
 
@@ -106,5 +108,9 @@ img {
 
 .product-info {
   margin: 0.3rem 0.3rem 1.3rem 0.3rem;
+}
+
+.product-text-stars {
+  font-size: 2rem;
 }
 </style>

@@ -9,7 +9,7 @@ export default new MLCreate({
   languages: [
     new MLanguage('english').create({
       title: 'Gin, please ...',
-      userEmail: 'Mail Adress',
+      userEmail: 'Mail Address',
       password: 'Password',
       signIn: 'Sign In',
       signOut: 'Sign Out',
@@ -18,6 +18,7 @@ export default new MLCreate({
       edit: 'Edit',
       save: 'Save',
       delete: 'Delete',
+      abort: 'Abort',
       brand: 'Brand',
       productName: 'Name',
       imageLink: 'Image Link',
@@ -27,7 +28,9 @@ export default new MLCreate({
       fillingQuantity: 'Filling Quantity',
       fillingUnit: 'cl',
       price: 'Price',
-      currency: '€'
+      currency: '€',
+      confirmDeleteDialogTitle: 'Confirm Delete',
+      confirmDeleteDialogContent: 'Do you really want to delete this item?'
     }),
 
     new MLanguage('german').create({
@@ -41,6 +44,7 @@ export default new MLCreate({
       edit: 'Bearbeiten',
       save: 'Speichern',
       delete: 'Löschen',
+      abort: 'Abbrechen',
       brand: 'Marke',
       productName: 'Name / Bezeichnung',
       imageLink: 'Link zum Bild',
@@ -50,7 +54,9 @@ export default new MLCreate({
       fillingQuantity: 'Inhalt',
       fillingUnit: 'cl',
       price: 'Preis',
-      currency: 'CHF'
+      currency: 'CHF',
+      confirmDeleteDialogTitle: 'Löschen bestätigen',
+      confirmDeleteDialogContent: 'Willst du diesen Eintrag wirklich löschen?'
     })
   ]
 })

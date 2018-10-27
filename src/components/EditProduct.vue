@@ -1,5 +1,10 @@
 <template>
   <div class="hello">
+     <mu-dialog :title="$ml.get('confirmDeleteDialogTitle')" width="600" max-width="80%" :esc-press-close="false" :overlay-close="false" :open.sync="confirmDeleteDialog">
+    {{$ml.get('confirmDeleteDialogContent')}}
+    <mu-button slot="actions" flat color="primary" @click="confirmDeleteDialog=false">{{$ml.get('abort')}}</mu-button>
+    <mu-button slot="actions" flat color="primary" @click="deleteData">{{$ml.get('delete')}}</mu-button>
+  </mu-dialog>
     <div>
       <app-bar/>
       <div class="page-wrap sizing">
@@ -42,7 +47,7 @@
             <mu-form-item >
               <mu-container class="button-wrapper">
                 <mu-button color="primary" @click="writeData">{{$ml.get('save')}}</mu-button>
-                <mu-button color="primary" :disabled="!this.isProductIdSet" @click="deleteData">{{$ml.get('delete')}}</mu-button>
+                <mu-button color="red" :disabled="!this.isProductIdSet" @click="confirmDelete">{{$ml.get('delete')}}</mu-button>
               </mu-container>
             </mu-form-item>
           </mu-form>
@@ -69,6 +74,7 @@ export default {
   data () {
     return {
       productId: null,
+      confirmDeleteDialog: false,
       product: {
         name: '',
         brand: '',
@@ -101,7 +107,11 @@ export default {
     readData: function (productId) {
       this.$bindAsObject('product', db.ref('products').child(this.productId), null, () => console.log(this.product))
     },
+    confirmDelete: function () {
+      this.confirmDeleteDialog = true
+    },
     deleteData: function () {
+      this.confirmDeleteDialog = false
       db.ref('products').child(this.productId).remove()
       this.$emit('propagate-event', 'success', 'Removed item')
       this.$router.push({ path: '/entrylist' })

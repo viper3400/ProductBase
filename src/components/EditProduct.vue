@@ -46,8 +46,14 @@
             </mu-form-item>
             <mu-form-item >
               <mu-container class="button-wrapper">
-                <mu-button color="primary" @click="writeData">{{$ml.get('save')}}</mu-button>
-                <mu-button color="red" :disabled="!this.isProductIdSet" @click="confirmDelete">{{$ml.get('delete')}}</mu-button>
+                <mu-button color="primary" @click="writeData">
+                   <mu-icon left value="save"></mu-icon>
+                   {{$ml.get('save')}}
+                </mu-button>
+                <mu-button color="red" :disabled="!this.isProductIdSet" @click="confirmDelete">
+                   <mu-icon left value="delete_forever"></mu-icon>
+                   {{$ml.get('delete')}}
+                </mu-button>
               </mu-container>
             </mu-form-item>
           </mu-form>

@@ -52,9 +52,7 @@ export default {
     products: {
       source: db.ref('products'),
       readyCallback: function () {
-        this.products = this.products.sort(function (o1, o2) {
-          return o2.rating - o1.rating
-        })
+        this.products = this.sortByRatingDesc(this.products)
       }
     }
   },
@@ -69,6 +67,30 @@ export default {
   methods: {
     editRedirect: function (id) {
       this.$router.push('/editproduct/' + id)
+    },
+    sortByRatingDesc: function (productlist) {
+      productlist = productlist.sort(function (p1, p2) {
+        return p2.rating - p1.rating
+      })
+      return productlist
+    },
+    sortByRatingAsc: function (productlist) {
+      productlist = productlist.sort(function (p1, p2) {
+        return p1.rating - p2.rating
+      })
+      return productlist
+    },
+    sortByBrandAsc: function (productlist) {
+      productlist = productlist.sort(function (p1, p2) {
+        return p1.brand.localeCompare(p2.brand)
+      })
+      return productlist
+    },
+    sortByBrandDesc: function (productlist) {
+      productlist = productlist.sort(function (p1, p2) {
+        return p2.brand.localeCompare(p1.brand)
+      })
+      return productlist
     }
   },
   created () {

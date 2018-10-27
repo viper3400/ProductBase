@@ -30,7 +30,12 @@ export default new MLCreate({
       price: 'Price',
       currency: '€',
       confirmDeleteDialogTitle: 'Confirm Delete',
-      confirmDeleteDialogContent: 'Do you really want to delete this item?'
+      confirmDeleteDialogContent: 'Do you really want to delete this item?',
+      sortOrder: 'Sort Order',
+      sortByBrand: 'Sort by brand',
+      sortByRating: 'Sort by rating',
+      asc: 'ascending',
+      desc: 'descending'
     }),
 
     new MLanguage('german').create({
@@ -56,7 +61,12 @@ export default new MLCreate({
       price: 'Preis',
       currency: 'CHF',
       confirmDeleteDialogTitle: 'Löschen bestätigen',
-      confirmDeleteDialogContent: 'Willst du diesen Eintrag wirklich löschen?'
+      confirmDeleteDialogContent: 'Willst du diesen Eintrag wirklich löschen?',
+      sortOrder: 'Sortierung',
+      sortByBrand: 'Sortiere nach Marke',
+      sortByRating: 'Sortiere nach Bewertung',
+      asc: 'aufsteigend',
+      desc: 'absteigend'
     })
   ]
 })

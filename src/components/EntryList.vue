@@ -4,6 +4,38 @@
       <app-bar/>
       <div class="page-wrap sizing">
       <mu-container v-if="products">
+        <mu-row class="navigation-pane">
+            <mu-col>
+              <mu-menu :open.sync="sortMenuOpen">
+              <mu-button color="indigo400">
+                  <mu-icon left value="sort"></mu-icon>
+                  {{$ml.get('sortOrder')}}
+                </mu-button>
+                <mu-list slot="content">
+                  <mu-list-item button @click="sortProductList('sortbyratingdesc'); sortMenuOpen=false">
+                    <mu-list-item-content>
+                      <mu-list-item-title>{{$ml.get('sortByRating')}} ({{$ml.get('desc')}})</mu-list-item-title>
+                    </mu-list-item-content>
+                  </mu-list-item>
+                  <mu-list-item button @click="sortProductList('sortbyratingasc'); sortMenuOpen=false">
+                    <mu-list-item-content>
+                      <mu-list-item-title>{{$ml.get('sortByRating')}} ({{$ml.get('asc')}})</mu-list-item-title>
+                    </mu-list-item-content>
+                  </mu-list-item>
+                  <mu-list-item button @click="sortProductList('sortbybrandasc'); sortMenuOpen=false">
+                    <mu-list-item-content>
+                      <mu-list-item-title>{{$ml.get('sortByBrand')}} ({{$ml.get('asc')}})</mu-list-item-title>
+                    </mu-list-item-content>
+                  </mu-list-item>
+                   <mu-list-item button @click="sortProductList('sortbybranddesc'); sortMenuOpen=false">
+                    <mu-list-item-content>
+                      <mu-list-item-title>{{$ml.get('sortByBrand')}} ({{$ml.get('desc')}})</mu-list-item-title>
+                    </mu-list-item-content>
+                  </mu-list-item>
+                </mu-list>
+              </mu-menu>
+            </mu-col>
+        </mu-row>
         <mu-row gutter class="product-rows" v-for="(item, idx) in products" :key="idx">
           <mu-col span="12" sm="12" md="6">
             <div class="product-img-container">
@@ -65,7 +97,8 @@ export default {
   },
   data () {
     return {
-      sortOrder: SortOrderEnum.SortByRatingDesc
+      sortOrder: SortOrderEnum.SortByRatingDesc,
+      sortMenuOpen: false
     }
   },
   components: {
@@ -88,7 +121,7 @@ export default {
         case SortOrderEnum.SortByBrandDesc:
           this.products = this.sortByBrandDesc(this.products)
           break
-        case SortOrderEnum.SortByBrandAsc(this.products):
+        case SortOrderEnum.SortByBrandAsc:
           this.products = this.sortByBrandAsc(this.products)
           break
       }
@@ -131,12 +164,16 @@ export default {
   margin-top: 5%;
 }
 
+.navigation-pane {
+  margin-bottom: 1rem;
+}
+
 .product-rows {
   padding: 0 0 1rem 0;
 }
 
 .prduct-image-rel {
-  max-width: 80%
+  max-width: 80%;
 }
 
 .product-info-button {

@@ -110,6 +110,8 @@ export default {
       this.$router.push('/editproduct/' + id)
     },
     sortProductList: function (sortOrder) {
+      this.sortOrder = sortOrder
+      this.persistSettings()
       switch (sortOrder) {
         case SortOrderEnum.SortByRatingDesc:
         default:
@@ -149,10 +151,22 @@ export default {
         return p2.brand.localeCompare(p1.brand)
       })
       return productlist
+    },
+    readSettings: function () {
+      var storeObject = JSON.parse(sessionStorage.getItem('ch.jaxx.prodcutbase.gin'))
+      if (storeObject) {
+        this.sortOrder = storeObject.sortOrder
+      }
+    },
+    persistSettings: function () {
+      var storeObject = {
+        sortOrder: this.sortOrder
+      }
+      sessionStorage.setItem('ch.jaxx.prodcutbase.gin', JSON.stringify(storeObject))
     }
   },
-  created () {
-    console.log(this.products)
+  mounted () {
+    this.readSettings()
   }
 }
 </script>

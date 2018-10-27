@@ -46,18 +46,26 @@ import AppBar from '@/Components/AppBar'
 import VueStars from 'vue-stars'
 import db from '../firebase.js'
 
+var SortOrderEnum = {
+  SortByRatingAsc: 'sortbyratingasc',
+  SortByRatingDesc: 'sortbyratingdesc',
+  SortByBrandAsc: 'sortbybrandasc',
+  SortByBrandDesc: 'sortbybranddesc'
+}
+
 export default {
   name: 'EntryList',
   firebase: {
     products: {
       source: db.ref('products'),
       readyCallback: function () {
-        this.products = this.sortByRatingDesc(this.products)
+        this.sortProductList(this.sortOrder)
       }
     }
   },
   data () {
     return {
+      sortOrder: SortOrderEnum.SortByRatingDesc
     }
   },
   components: {
@@ -67,6 +75,23 @@ export default {
   methods: {
     editRedirect: function (id) {
       this.$router.push('/editproduct/' + id)
+    },
+    sortProductList: function (sortOrder) {
+      switch (sortOrder) {
+        case SortOrderEnum.SortByRatingDesc:
+        default:
+          this.products = this.sortByRatingDesc(this.products)
+          break
+        case SortOrderEnum.SortByRatingAsc:
+          this.products = this.sortByRatingAsc(this.products)
+          break
+        case SortOrderEnum.SortByBrandDesc:
+          this.products = this.sortByBrandDesc(this.products)
+          break
+        case SortOrderEnum.SortByBrandAsc(this.products):
+          this.products = this.sortByBrandAsc(this.products)
+          break
+      }
     },
     sortByRatingDesc: function (productlist) {
       productlist = productlist.sort(function (p1, p2) {

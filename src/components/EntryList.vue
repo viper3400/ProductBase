@@ -17,9 +17,9 @@
                   <h1>{{item.brand}}</h1>
                   <h2 v-if="item.name">{{item.name}}</h2>
                   <p>
-                  <strong>{{$ml.get('fillingQuantity')}}</strong> {{item.fillingQuantity}}<br>
-                  <strong>{{$ml.get('alcoholStrength')}}</strong> {{item.alcoholStrength}}<br>
-                  <strong>{{$ml.get('price')}}</strong> {{item.price}}
+                  <strong>{{$ml.get('fillingQuantity')}}</strong> {{item.fillingQuantity}} cl<br>
+                  <strong>{{$ml.get('alcoholStrength')}}</strong> {{item.alcoholStrength}}%<br>
+                  <strong>{{$ml.get('price')}}</strong> {{item.price}} {{$ml.get('currency')}}
                   </p>
                   <h3>{{$ml.get('description')}}</h3>
                   <p>{{item.description}}</p>

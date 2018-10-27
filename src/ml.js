@@ -25,7 +25,9 @@ export default new MLCreate({
       description: 'Description / Taste',
       alcoholStrength: 'Alcohol Strength',
       fillingQuantity: 'Filling Quantity',
-      price: 'Price'
+      fillingUnit: 'cl',
+      price: 'Price',
+      currency: '€'
     }),
 
     new MLanguage('german').create({
@@ -46,7 +48,9 @@ export default new MLCreate({
       description: 'Geschmack',
       alcoholStrength: 'Alkoholgehalt',
       fillingQuantity: 'Inhalt',
-      price: 'Preis'
+      fillingUnit: 'cl',
+      price: 'Preis',
+      currency: 'CHF'
     })
   ]
 })

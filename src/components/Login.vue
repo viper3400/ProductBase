@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mu-flex class="flex-wrapper page-wrap sizing" justify-content="center">
+    <mu-flex :class="styleClasses.mainwrapper" justify-content="center">
       <mu-flex class="flex-demo" justify-content="center">
         <mu-form ref="form" :model="validateForm">
           <mu-form-item>
@@ -31,6 +31,9 @@ export default {
       validateForm: {
         username: '',
         password: ''
+      },
+      styleClasses: {
+        mainwrapper: 'flex-wrapper page-wrap sizing'
       }
     }
   },
@@ -46,7 +49,22 @@ export default {
           this.$emit('propagate-event', 'error', err.message)
         }
       )
+    },
+    styleToViewport: function () {
+      // set style classes depending on viewport to create a repsonsive user xp
+      switch (this.$currentViewport.label) {
+        case 'mobile':
+        case 'tablet':
+          this.styleClasses.mainwrapper = 'flex-wrapper page-wrap'
+          break
+        default:
+          this.styleClasses.mainwrapper = 'flex-wrapper page-wrap sizing'
+          break
+      }
     }
+  },
+  mounted () {
+    this.styleToViewport()
   }
 }
 </script>

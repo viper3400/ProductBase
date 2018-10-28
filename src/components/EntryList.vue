@@ -2,7 +2,7 @@
   <div>
     <div>
       <app-bar/>
-      <div class="page-wrap sizing">
+      <div :class="styleClasses.mainwrapper">
       <mu-container v-if="products">
         <mu-row class="navigation-pane">
             <mu-col>
@@ -98,7 +98,10 @@ export default {
   data () {
     return {
       sortOrder: SortOrderEnum.SortByRatingDesc,
-      sortMenuOpen: false
+      sortMenuOpen: false,
+      styleClasses: {
+        mainwrapper: 'page-wrap sizing'
+      }
     }
   },
   components: {
@@ -163,10 +166,23 @@ export default {
         sortOrder: this.sortOrder
       }
       sessionStorage.setItem('ch.jaxx.prodcutbase.gin', JSON.stringify(storeObject))
+    },
+    styleToViewport: function () {
+      // set style classes depending on viewport to create a repsonsive user xp
+      switch (this.$currentViewport.label) {
+        case 'mobile':
+        case 'tablet':
+          this.styleClasses.mainwrapper = 'page-wrap'
+          break
+        default:
+          this.styleClasses.mainwrapper = 'page-wrap sizing'
+          break
+      }
     }
   },
   mounted () {
     this.readSettings()
+    this.styleToViewport()
   }
 }
 </script>

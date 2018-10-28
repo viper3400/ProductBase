@@ -7,7 +7,7 @@
   </mu-dialog>
     <div>
       <app-bar/>
-      <div class="page-wrap sizing">
+      <div :class="styleClasses.mainwrapper">
         <mu-flex justify-content="center">
           <mu-form class="edit-form" :model="product">
             <mu-form-item prop="input" :label="$ml.get('brand')">
@@ -90,6 +90,9 @@ export default {
         alcoholStrength: '',
         fillingQuantity: '',
         price: ''
+      },
+      styleClasses: {
+        mainwrapper: 'page-wrap sizing'
       }
     }
   },
@@ -121,9 +124,22 @@ export default {
       db.ref('products').child(this.productId).remove()
       this.$emit('propagate-event', 'success', 'Removed item')
       this.$router.push({ path: '/entrylist' })
+    },
+    styleToViewport: function () {
+      // set style classes depending on viewport to create a repsonsive user xp
+      switch (this.$currentViewport.label) {
+        case 'mobile':
+        case 'tablet':
+          this.styleClasses.mainwrapper = 'page-wrap'
+          break
+        default:
+          this.styleClasses.mainwrapper = 'page-wrap sizing'
+          break
+      }
     }
   },
   mounted () {
+    this.styleToViewport()
     this.productId = this.$route.params.id
     if (this.isProductIdSet) {
       this.readData(this.productId)

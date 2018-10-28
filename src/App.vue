@@ -66,7 +66,6 @@ export default {
   position: relative;
 }
 .page-wrap {
-  margin-top: 10%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.85);
   /*-moz-box-shadow: 0 0 20px black;

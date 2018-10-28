@@ -2,6 +2,12 @@
 
 > A Vue.js project
 
+## Firebase Setup
+
+A [Firebase Realtime Database](https://firebase.google.com/products/realtime-database/) will be required in oder to run and operate ProductBase.
+
+Copy or rename src/firebaseconf.example.js to src/firebaseconf.js and fill the authentification parameters as provided Firebase.
+
 ## Build Setup
 
 ``` bash

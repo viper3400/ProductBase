@@ -101,7 +101,7 @@ export default {
       sortMenuOpen: false,
       styleClasses: {
         mainwrapper: 'page-wrap sizing',
-        productRows: 'product-rows'
+        productRows: 'product-rows-mobile'
       }
     }
   },
@@ -178,7 +178,7 @@ export default {
           break
         default:
           this.styleClasses.mainwrapper = 'page-wrap sizing'
-          this.styleClasses.productRows = 'product-rows'
+          this.styleClasses.productRows = 'product-rows-mobile'
           break
       }
     }

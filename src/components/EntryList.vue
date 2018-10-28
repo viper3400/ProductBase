@@ -36,7 +36,7 @@
               </mu-menu>
             </mu-col>
         </mu-row>
-        <mu-row gutter class="product-rows" v-for="(item, idx) in products" :key="idx">
+        <mu-row gutter :class="styleClasses.productRows" v-for="(item, idx) in products" :key="idx">
           <mu-col span="12" sm="12" md="6">
             <div class="product-img-container">
               <img class="product-img-rel" v-if="item.img" :src="item.img">
@@ -100,7 +100,8 @@ export default {
       sortOrder: SortOrderEnum.SortByRatingDesc,
       sortMenuOpen: false,
       styleClasses: {
-        mainwrapper: 'page-wrap sizing'
+        mainwrapper: 'page-wrap sizing',
+        productRows: 'product-rows'
       }
     }
   },
@@ -173,9 +174,11 @@ export default {
         case 'mobile':
         case 'tablet':
           this.styleClasses.mainwrapper = 'page-wrap'
+          this.styleClasses.productRows = 'product-rows-mobile'
           break
         default:
           this.styleClasses.mainwrapper = 'page-wrap sizing'
+          this.styleClasses.productRows = 'product-rows'
           break
       }
     }
@@ -199,7 +202,16 @@ export default {
 }
 
 .product-rows {
-  padding: 0 0 1rem 0;
+  padding: 1em 0 1em 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  -moz-box-shadow: 0 0 5px gray;
+  -webkit-box-shadow: 0 0 5px gray;
+  box-shadow: 0 0 5px gray;
+}
+
+.product-rows-mobile {
+  padding: 0 0 1em 0;
 }
 
 .prduct-image-rel {

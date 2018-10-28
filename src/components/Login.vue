@@ -41,7 +41,8 @@ export default {
   },
   methods: {
     signIn: function () {
-      firebase.auth().signInWithEmailAndPassword(this.validateForm.username, this.validateForm.password).then(
+      var trimmedUsername = this.validateForm.username.trim()
+      firebase.auth().signInWithEmailAndPassword(trimmedUsername, this.validateForm.password).then(
         (user) => {
           this.$router.replace('entrylist')
         },

@@ -49,12 +49,12 @@
                   <h1>{{item.brand}}</h1>
                   <h2 v-if="item.name">{{item.name}}</h2>
                   <p>
-                  <strong>{{$ml.get('fillingQuantity')}}</strong> {{item.fillingQuantity}} cl<br>
-                  <strong>{{$ml.get('alcoholStrength')}}</strong> {{item.alcoholStrength}}%<br>
-                  <strong>{{$ml.get('price')}}</strong> {{item.price}} {{$ml.get('currency')}}
+                  <span v-if="item.fillingQuantity"><strong>{{$ml.get('fillingQuantity')}}</strong> {{item.fillingQuantity}} cl<br></span>
+                  <span v-if="item.alcoholStrength"><strong>{{$ml.get('alcoholStrength')}}</strong> {{item.alcoholStrength}}%<br></span>
+                  <span v-if="item.price"><strong>{{$ml.get('price')}}</strong> {{item.price}} {{$ml.get('currency')}}</span>
                   </p>
-                  <h3>{{$ml.get('description')}}</h3>
-                  <p>{{item.description}}</p>
+                  <h3 v-if="item.description">{{$ml.get('description')}}</h3>
+                  <p v-if="item.description">{{item.description}}</p>
                 </div>
                 <mu-container class="product-info-button">
                   <mu-flex justify-content="start">

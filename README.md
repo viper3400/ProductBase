@@ -1,6 +1,12 @@
-# jaxx.vue.productbase
+# ProductBase
 
-> A Vue.js project
+A [Vue.js](https://vuejs.org/) project
+
+While intended to be a general database for manage, describe and rate products you like in fact it's a "GinDatabase" at the moment.
+
+![Screenhot](https://github.com/viper3400/ProductBase/blob/master/productshot.png)
+
+This screenshot is just for presentation! You need to setup your own Firebase database and create you own entries. This repository does not contain any data!
 
 ## Firebase Setup
 

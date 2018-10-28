@@ -24,7 +24,7 @@
       </mu-list-item>
       <mu-list-item>
         <mu-list-item-content>
-          V1.4.0
+          V1.5.0
         </mu-list-item-content>
       </mu-list-item>
     </mu-list>

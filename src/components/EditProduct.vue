@@ -16,6 +16,9 @@
             <mu-form-item prop="input" :label="$ml.get('productName')">
               <mu-text-field v-model="product.name"/>
             </mu-form-item>
+            <mu-form-item>
+               <mu-checkbox v-model="product.bottleFinished" :label="$ml.get('bottleFinished')"></mu-checkbox>
+            </mu-form-item>
             <mu-form-item prop="input" :label="$ml.get('imageLink')">
               <mu-text-field v-model="product.img"/>
             </mu-form-item>
@@ -89,7 +92,8 @@ export default {
         description: '',
         alcoholStrength: '',
         fillingQuantity: '',
-        price: ''
+        price: '',
+        bottleFinished: false
       },
       styleClasses: {
         mainwrapper: 'page-wrap sizing'

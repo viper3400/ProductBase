@@ -46,7 +46,7 @@
           <div class="product-info">
                 <div class="product-text">
                   <vue-stars :name="'star' + idx" class="product-text-stars" :value="item.rating" :readonly="true" shadowColor="black"/>
-                  <h1>{{item.brand}}</h1>
+                  <h1>{{item.brand}} <mu-badge v-if="item.bottleFinished" :content="$ml.get('bottleFinished')" color="red"></mu-badge></h1>
                   <h2 v-if="item.name">{{item.name}}</h2>
                   <p>
                   <span v-if="item.fillingQuantity"><strong>{{$ml.get('fillingQuantity')}}</strong> {{item.fillingQuantity}} cl<br></span>

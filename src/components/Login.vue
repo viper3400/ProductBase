@@ -79,7 +79,6 @@ export default {
 .flex-demo {
   width: 80%;
   height: 100%;
-  background-color: #e0e0e0;
   text-align: left;
   line-height: 32px;
 }
